@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="103" id="KGk-i7-Jjw" customClass="MainTableViewCell" customModule="rx_mvvm" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="434" height="103"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="434" height="103"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dxt-AM-ysD">
+                        <rect key="frame" x="16" y="0.0" width="402" height="95"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Uhq-GB-udI">
+                                <rect key="frame" x="0.0" y="1.5" width="95" height="92.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Uhq-GB-udI" secondAttribute="height" id="cOb-Zg-l48"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zaX-G3-YSU">
+                                <rect key="frame" x="107" y="47.5" width="295" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Uhq-GB-udI" secondAttribute="bottom" id="1ze-DM-ZzZ"/>
+                            <constraint firstItem="zaX-G3-YSU" firstAttribute="leading" secondItem="Uhq-GB-udI" secondAttribute="trailing" constant="12" id="AiL-8t-cao"/>
+                            <constraint firstItem="zaX-G3-YSU" firstAttribute="centerY" secondItem="Uhq-GB-udI" secondAttribute="centerY" id="f3P-X3-RJU"/>
+                            <constraint firstItem="Uhq-GB-udI" firstAttribute="leading" secondItem="dxt-AM-ysD" secondAttribute="leading" id="h6f-W0-8QY"/>
+                            <constraint firstAttribute="trailing" secondItem="zaX-G3-YSU" secondAttribute="trailing" id="qwH-R8-8ac"/>
+                            <constraint firstItem="Uhq-GB-udI" firstAttribute="top" secondItem="dxt-AM-ysD" secondAttribute="top" id="sOW-6I-bYp"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="dxt-AM-ysD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="GLu-2k-Zym"/>
+                    <constraint firstAttribute="bottom" secondItem="dxt-AM-ysD" secondAttribute="bottom" constant="8" id="In5-4b-QeI"/>
+                    <constraint firstItem="dxt-AM-ysD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="PPy-LS-Tsm"/>
+                    <constraint firstAttribute="trailing" secondItem="dxt-AM-ysD" secondAttribute="trailing" constant="16" id="cFh-V8-bHy"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="nameLabel" destination="zaX-G3-YSU" id="ap3-dw-3dT"/>
+                <outlet property="userImageView" destination="Uhq-GB-udI" id="Z5T-rg-5SC"/>
+            </connections>
+            <point key="canvasLocation" x="175.36231884057972" y="115.51339285714285"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="person" catalog="system" width="128" height="117"/>
+    </resources>
+</document>

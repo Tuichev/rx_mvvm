@@ -11,6 +11,7 @@
 		2D15186F2726796E00439944 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D15186E2726796E00439944 /* CoreDataManager.swift */; };
 		2D15187227267AC100439944 /* UsersModel+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D15187127267AC100439944 /* UsersModel+CoreData.swift */; };
 		2D15188327267DEB00439944 /* CoreDataUserModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2D15188127267DEB00439944 /* CoreDataUserModel.xcdatamodeld */; };
+		2D15188627268C3400439944 /* StringValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D15188527268C3400439944 /* StringValues.swift */; };
 		2D1E18DD2720D4A200749AA3 /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1E18DC2720D4A200749AA3 /* UsersModel.swift */; };
 		2D1E18E02720D4ED00749AA3 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1E18DF2720D4ED00749AA3 /* UsersViewModel.swift */; };
 		2D1E18E62720D56F00749AA3 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1E18E42720D56F00749AA3 /* MainTableViewCell.swift */; };
@@ -38,6 +39,7 @@
 		2D15186E2726796E00439944 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		2D15187127267AC100439944 /* UsersModel+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UsersModel+CoreData.swift"; sourceTree = "<group>"; };
 		2D15188227267DEB00439944 /* CoreDataUserModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataUserModel.xcdatamodel; sourceTree = "<group>"; };
+		2D15188527268C3400439944 /* StringValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringValues.swift; sourceTree = "<group>"; };
 		2D1E18DC2720D4A200749AA3 /* UsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
 		2D1E18DF2720D4ED00749AA3 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		2D1E18E42720D56F00749AA3 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				2D1E190E2720E7C400749AA3 /* APIEndPoints.swift */,
+				2D15188527268C3400439944 /* StringValues.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				2D15188327267DEB00439944 /* CoreDataUserModel.xcdatamodeld in Sources */,
 				2D1E19152720E9B200749AA3 /* Extensions+Dictionary.swift in Sources */,
 				2D619204271F1B6300825AB2 /* AppDelegate.swift in Sources */,
+				2D15188627268C3400439944 /* StringValues.swift in Sources */,
 				2D1E19182720E9C800749AA3 /* Extensions+UIView.swift in Sources */,
 				2D1E18FD2720E11700749AA3 /* UsersRepository.swift in Sources */,
 				2D1E191B2720EA0F00749AA3 /* Extensions+UITableView.swift in Sources */,

@@ -31,6 +31,9 @@ class MainViewController: UIViewController {
         tableView.register(MainTableViewCell.self)
         tableView.tableFooterView = UIView()
         
+        let isEmpty = tableView.rx.isEmpty(message: StringValues.emptyData)
+        viewModel.items.map({ $0.count <= 0 }).distinctUntilChanged().bind(to: isEmpty).disposed(by: bag)
+        
         viewModel.items.bind(to: tableView.rx.items(cellIdentifier: MainTableViewCell.identifier, cellType: MainTableViewCell.self)) { (row,item,cell) in
             cell.display(image: item.avatar, name: item.firstName)
         }.disposed(by: bag)

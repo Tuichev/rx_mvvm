@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func setupServices() {
+        SDImageCache.shared.clearMemory()
+        SDImageCache.shared.clearDisk()
+        
         Reachability.shared.startListening()
     }
     

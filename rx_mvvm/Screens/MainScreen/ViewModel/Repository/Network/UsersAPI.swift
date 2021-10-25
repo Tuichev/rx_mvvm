@@ -12,7 +12,7 @@ import RxSwift
 class UsersAPI {
     private let disposeBag = DisposeBag()
     
-    func fetchDataFromApi(items: PublishSubject<[UsersModel.UserEntity]>, param: UsersModel.UserRequest = UsersModel.UserRequest(perPage: 10)) {
+    func fetchDataFromApi(items: PublishSubject<[UsersModel.UserEntity]>, localStorage: UsersLocalStorageProtocol, param: UsersModel.UserRequest = UsersModel.UserRequest(perPage: 10)) {
         let parameters = param.convertToParameters
         let urlWithQuery = APIEndPoints.users + parameters.queryItems()
         
@@ -20,8 +20,14 @@ class UsersAPI {
         
         RxAlamofire.requestData(.get, url)
             .mapObject(type: UsersModel.UserResponse.self)
-            .subscribe { (response) in
-                items.onNext(response.element?.users ?? [])
+            .subscribe { [weak localStorage] (response) in
+                let users = response.element?.users ?? []
+                
+                if !users.isEmpty {
+                    localStorage?.saveDataFromApi(items: users)
+                }
+                
+                items.onNext(users)
                 items.onCompleted()
             }
             .disposed(by: disposeBag)

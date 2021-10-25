@@ -9,6 +9,7 @@ target 'rx_mvvm' do
 
 pod 'RxAlamofire'
 pod "RxCoreData", "~> 1.0.0"
+pod 'RxDataSources', '~> 5.0'
 
 pod 'RxSwift', '6.2.0'
 pod 'RxCocoa', '6.2.0'

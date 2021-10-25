@@ -16,9 +16,9 @@ class UsersRepository {
         let hasInternerConnection = Reachability.shared.isConnected
         
         if hasInternerConnection {
-            usersAPI.fetchDataFromApi(items: items)
+            usersAPI.fetchDataFromApi(items: items, localStorage: userStorage)
         } else {
-            userStorage.fetchDataFromApi(items: items)
+            userStorage.fetchDataFromStorage(items: items)
         }
     }
 }

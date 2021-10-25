@@ -13,7 +13,7 @@ class UsersRepository {
     private let userStorage = UsersLocalStorage()
     
     func fetchData(items: PublishSubject<[UsersModel.UserEntity]>) {
-        let hasInternerConnection = true//TODO: add listner from alamofire
+        let hasInternerConnection = Reachability.shared.isConnected
         
         if hasInternerConnection {
             usersAPI.fetchDataFromApi(items: items)

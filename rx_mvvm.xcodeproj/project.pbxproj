@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D1518642726749800439944 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1518632726749800439944 /* Reachability.swift */; };
 		2D1E18DD2720D4A200749AA3 /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1E18DC2720D4A200749AA3 /* UsersModel.swift */; };
 		2D1E18E02720D4ED00749AA3 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1E18DF2720D4ED00749AA3 /* UsersViewModel.swift */; };
 		2D1E18E62720D56F00749AA3 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1E18E42720D56F00749AA3 /* MainTableViewCell.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D1518632726749800439944 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		2D1E18DC2720D4A200749AA3 /* UsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
 		2D1E18DF2720D4ED00749AA3 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		2D1E18E42720D56F00749AA3 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
@@ -68,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D1518622726747F00439944 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2D1518632726749800439944 /* Reachability.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		2D1E18D32720D30700749AA3 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				2D1E18D32720D30700749AA3 /* AppDelegate */,
+				2D1518622726747F00439944 /* Services */,
 				2D1E18D42720D31A00749AA3 /* Screens */,
 				2D1E19002720E54C00749AA3 /* Extensions */,
 				2D1E190D2720E7A900749AA3 /* Constants */,
@@ -371,6 +382,7 @@
 				2D1E18F92720D91000749AA3 /* MainViewController.swift in Sources */,
 				2D1E18E62720D56F00749AA3 /* MainTableViewCell.swift in Sources */,
 				2D1E18E02720D4ED00749AA3 /* UsersViewModel.swift in Sources */,
+				2D1518642726749800439944 /* Reachability.swift in Sources */,
 				2D1E190A2720E76600749AA3 /* UsersAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

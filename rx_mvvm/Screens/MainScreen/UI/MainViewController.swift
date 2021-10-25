@@ -39,10 +39,16 @@ class MainViewController: UIViewController {
         }.disposed(by: bag)
         
         tableView.rx.modelSelected(UsersModel.UserEntity.self).subscribe(onNext: { item in
-            print("SelectedItem: \(item.id)")
+            self.showDetails(data: item)
         }).disposed(by: bag)
         
         viewModel.fetchData()
+    }
+    
+    private func showDetails(data: UsersModel.UserEntity) {
+        let vc = DetailScreenViewController.fromStoryboard
+        vc.setupData(data: data)
+        present(vc, animated: true, completion: nil)
     }
 }
 

@@ -27,8 +27,7 @@ class DetailScreenViewController: UIViewController {
     }
 
     private func setupDataBinding()  {
-        item.asObservable()
-            .subscribe(onNext: {
+        item.subscribe(onNext: {
                 data in
                 
                 var fullName =  (data.firstName ?? "")  +  " " +  (data.lastName ?? "")

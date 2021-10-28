@@ -48,10 +48,10 @@ class MainViewController: UIViewController {
     
     private func showDetails(data: UsersModel.UserEntity) {
         let vc = DetailScreenViewController.fromStoryboard
-        vc.item.onNext(data)
-        vc.item.onCompleted()
         
-        present(vc, animated: true, completion: nil)
+        present(vc, animated: true, completion: {
+            vc.item.onNext(data)
+        })
     }
 }
 

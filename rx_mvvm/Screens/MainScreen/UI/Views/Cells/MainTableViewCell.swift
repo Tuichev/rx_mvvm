@@ -9,15 +9,10 @@ import UIKit
 import SDWebImage
 
 class MainTableViewCell: UITableViewCell {
-    @IBOutlet weak var userImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet private weak var userImageView: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
     
     private let placeholderImage = UIImage(systemName: "person")
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
     
     override func prepareForReuse() {
         super.prepareForReuse()

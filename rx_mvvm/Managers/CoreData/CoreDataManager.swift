@@ -12,31 +12,31 @@ class CoreDataManager {
     static let shared = CoreDataManager()
     
     lazy var applicationDocumentsDirectory: URL = {
-        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return urls.last!
+        if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last {
+            return url
+        }
+        
+        fatalError("Unresolved error: FileManager url error in CoreDataManager")
     }()
     
     lazy var managedObjectModel: NSManagedObjectModel = {
-        let modelURL = Bundle.main.url(forResource: "CoreDataUserModel", withExtension: "momd")!
-        return NSManagedObjectModel(contentsOf: modelURL)!
+        if let modelURL = Bundle.main.url(forResource: "CoreDataUserModel", withExtension: "momd"),
+           let result = NSManagedObjectModel(contentsOf: modelURL) {
+            return result
+        }
+        
+        fatalError("Unresolved error: didn't find CoreDataUserModel")
     }()
     
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         let url = self.applicationDocumentsDirectory.appendingPathComponent("RxCoreData.sqlite")
-        var failureReason = "There was an error creating or loading the application's saved data."
         
         do {
             try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true])
         } catch {
-            var dict = [String: Any]()
-            dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
-            dict[NSLocalizedFailureReasonErrorKey] = failureReason
-            
-            dict[NSUnderlyingErrorKey] = error as NSError
-            let wrappedError = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
-            NSLog("Unresolved error \(wrappedError), \(wrappedError.userInfo)")
-            abort()
+            let wrappedError = CustomError.runtimeError("There was an error creating or loading the application's saved data.")
+            fatalError("Unresolved error \(wrappedError)")
         }
         
         return coordinator
@@ -48,7 +48,6 @@ class CoreDataManager {
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()
-    
     
     private init() {}
 }

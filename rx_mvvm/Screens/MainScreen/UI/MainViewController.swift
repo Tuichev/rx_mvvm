@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 class MainViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     private let viewModel = UsersViewModel()
     private let bag = DisposeBag()
@@ -34,7 +34,7 @@ class MainViewController: UIViewController {
         let isEmpty = tableView.rx.isEmpty(message: StringValues.emptyData)
         viewModel.items.map({ $0.count <= 0 }).distinctUntilChanged().bind(to: isEmpty).disposed(by: bag)
         
-        viewModel.items.bind(to: tableView.rx.items(cellIdentifier: MainTableViewCell.identifier, cellType: MainTableViewCell.self)) { (row,item,cell) in
+        viewModel.items.bind(to: tableView.rx.items(cellIdentifier: MainTableViewCell.identifier, cellType: MainTableViewCell.self)) { row,item,cell in
             cell.display(image: item.avatar, name: item.firstName)
         }.disposed(by: bag)
         

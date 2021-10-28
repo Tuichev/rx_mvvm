@@ -31,6 +31,5 @@ class UsersAPI {
                 items.onCompleted()
             }
             .disposed(by: disposeBag)
-
     }
 }

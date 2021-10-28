@@ -15,11 +15,7 @@ extension ObservableType {
             let responseTuple = data as? (HTTPURLResponse, Data)
 
             guard let jsonData = responseTuple?.1 else {
-                throw NSError(
-                    domain: "",
-                    code: -1,
-                    userInfo: [NSLocalizedDescriptionKey: "Could not decode object"]
-                )
+                throw CustomError.runtimeError("Could not decode object")
             }
             
             let decoder = JSONDecoder()
@@ -34,11 +30,7 @@ extension ObservableType {
             let responseTuple = data as? (HTTPURLResponse, Data)
             
             guard let jsonData = responseTuple?.1 else {
-                throw NSError(
-                    domain: "",
-                    code: -1,
-                    userInfo: [NSLocalizedDescriptionKey: "Could not decode object"]
-                )
+                throw CustomError.runtimeError("Could not decode object")
             }
             
             let decoder = JSONDecoder()

@@ -20,7 +20,7 @@ extension Encodable {
                 jsonObjectString[item.key] = array.count > 0 ? array : ""
                 
             case let dict as NSDictionary:
-                jsonObjectString[item.key] = dict.count > 0 ? dict : ""//convertValueToString(array: dict)
+                jsonObjectString[item.key] = dict.count > 0 ? dict : ""
                 
             default:
                 jsonObjectString[item.key] = String(describing: item.value)

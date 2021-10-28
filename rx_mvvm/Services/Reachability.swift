@@ -18,7 +18,10 @@ class Reachability {
     static let shared = Reachability()
     
     private init() {
-        monitor.pathUpdateHandler = { path in
+        monitor.pathUpdateHandler = { [weak self] path in
+            
+            guard let `self` = self else { return }
+            
             let isConnected = path.status == .satisfied
             let statusChanged = self.previousStatus != isConnected
             

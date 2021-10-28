@@ -13,13 +13,20 @@ import RxCoreData
 
 protocol UsersLocalStorageProtocol: AnyObject {
     func saveDataFromApi(items: [UsersModel.UserEntity])
+    func fetchDataFromStorage(items: PublishSubject<[UsersModel.UserEntity]>)
 }
 
-class UsersLocalStorage {
+class UsersLocalStorage: UsersLocalStorageProtocol {
     private let disposeBag = DisposeBag()
     
     private var managedObjectContext: NSManagedObjectContext! {
         return CoreDataManager.shared.managedObjectContext
+    }
+    
+    func saveDataFromApi(items: [UsersModel.UserEntity]) {
+        items.forEach({
+            try? self.managedObjectContext.rx.update($0)
+        })
     }
     
     func fetchDataFromStorage(items: PublishSubject<[UsersModel.UserEntity]>) {
@@ -28,13 +35,5 @@ class UsersLocalStorage {
             items.onCompleted()
         }
         .disposed(by: disposeBag)
-    }
-}
-
-extension UsersLocalStorage: UsersLocalStorageProtocol {
-    func saveDataFromApi(items: [UsersModel.UserEntity]) {
-        items.forEach({
-            try? self.managedObjectContext.rx.update($0)
-        })
     }
 }

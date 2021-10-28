@@ -9,10 +9,14 @@ import Foundation
 import RxAlamofire
 import RxSwift
 
-class UsersAPI {
+protocol UsersAPIProtocol: AnyObject {
+    func fetchDataFromApi(items: PublishSubject<[UsersModel.UserEntity]>, localStorage: UsersLocalStorageProtocol, param: UsersModel.UserRequest)
+}
+
+class UsersAPI: UsersAPIProtocol {
     private let disposeBag = DisposeBag()
     
-    func fetchDataFromApi(items: PublishSubject<[UsersModel.UserEntity]>, localStorage: UsersLocalStorageProtocol, param: UsersModel.UserRequest = UsersModel.UserRequest(perPage: 10)) {
+    func fetchDataFromApi(items: PublishSubject<[UsersModel.UserEntity]>, localStorage: UsersLocalStorageProtocol, param: UsersModel.UserRequest) {
         let parameters = param.convertToParameters
         let urlWithQuery = APIEndPoints.users + parameters.queryItems()
         
@@ -31,5 +35,11 @@ class UsersAPI {
                 items.onCompleted()
             }
             .disposed(by: disposeBag)
+    }
+}
+
+extension UsersAPIProtocol {
+    func fetchDataFromApi(items: PublishSubject<[UsersModel.UserEntity]>, localStorage: UsersLocalStorageProtocol, param: UsersModel.UserRequest = UsersModel.UserRequest(perPage: 10)) {
+        fetchDataFromApi(items: items, localStorage: localStorage, param: param)
     }
 }

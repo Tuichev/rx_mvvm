@@ -11,6 +11,8 @@ import CoreData
 class CoreDataManager {
     static let shared = CoreDataManager()
     
+    private init() {}
+    
     lazy var applicationDocumentsDirectory: URL = {
         if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last {
             return url
@@ -48,6 +50,4 @@ class CoreDataManager {
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()
-    
-    private init() {}
 }

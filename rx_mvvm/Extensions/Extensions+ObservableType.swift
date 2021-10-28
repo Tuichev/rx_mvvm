@@ -9,7 +9,6 @@ import Foundation
 import RxSwift
 
 extension ObservableType {
-    
     public func mapObject<T: Codable>(type: T.Type) -> Observable<T> {
         return flatMap { data -> Observable<T> in
             let responseTuple = data as? (HTTPURLResponse, Data)

@@ -8,9 +8,18 @@
 import Foundation
 import RxSwift
 
-class UsersRepository {
-    private let usersAPI = UsersAPI()
-    private let userStorage = UsersLocalStorage()
+protocol UsersRepositoryProtocol: AnyObject {
+    func fetchData(items: PublishSubject<[UsersModel.UserEntity]>)
+}
+
+class UsersRepository: UsersRepositoryProtocol {
+    private let usersAPI: UsersAPIProtocol
+    private let userStorage: UsersLocalStorageProtocol
+    
+    required init(api: UsersAPIProtocol = UsersAPI(), localStorage: UsersLocalStorageProtocol = UsersLocalStorage()) {
+        self.usersAPI = api
+        self.userStorage = localStorage
+    }
     
     func fetchData(items: PublishSubject<[UsersModel.UserEntity]>) {
         let hasInternerConnection = Reachability.shared.isConnected

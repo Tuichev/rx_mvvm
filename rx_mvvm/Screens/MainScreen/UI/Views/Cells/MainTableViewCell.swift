@@ -35,8 +35,7 @@ class MainTableViewCell: UITableViewCell {
     }
     
     private func setupDataBinding() {
-        item.asObservable()
-            .subscribe(onNext: {
+        item.subscribe(onNext: {
                 data in
                 
                 let imageLink: Observable<String?> = Observable.of(data.avatar)

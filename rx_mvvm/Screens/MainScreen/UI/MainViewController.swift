@@ -35,8 +35,7 @@ class MainViewController: UIViewController {
         viewModel.items.map({ $0.count <= 0 }).distinctUntilChanged().bind(to: isEmpty).disposed(by: bag)
         
         viewModel.items.bind(to: tableView.rx.items(cellIdentifier: MainTableViewCell.identifier, cellType: MainTableViewCell.self)) { row,item,cell in
-            cell.item.onNext(item)
-            cell.item.onCompleted()
+            cell.display(data: item)
         }.disposed(by: bag)
         
         tableView.rx.modelSelected(UsersModel.UserEntity.self).subscribe(onNext: { item in
@@ -48,15 +47,12 @@ class MainViewController: UIViewController {
     
     private func showDetails(data: UsersModel.UserEntity) {
         let vc = DetailScreenViewController.fromStoryboard
-        
-        present(vc, animated: true, completion: {
-            vc.item.onNext(data)
-        })
+        vc.item = data
+        present(vc, animated: true, completion: nil)
     }
 }
 
 extension MainViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
